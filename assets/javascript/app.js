@@ -44,12 +44,35 @@ var destination = $("#destination").val().trim();
 var firstTrain = $("#first-train").val().trim();
 var frequency = $("#frequency").val().trim();
 
-database.ref().set({
+database.ref().push({
   trainName: trainName,
   destination: destination,
   firstTrain: firstTrain,
   frequency: frequency
 })
 
+
 /*$("#addedTrain").html(trainName + ":" + " " + destination + " " + "at" + " " + firstTrain + " " + frequency);*/
+$("form")[0].reset();
 });
+
+
+database.ref().on("value", function(snapshot) {
+
+      // Log everything that's coming out of snapshot
+      console.log(snapshot.val());
+      console.log(snapshot.val().trainName);
+      console.log(snapshot.val().destination);
+      console.log(snapshot.val().firstTrain);
+      console.log(snapshot.val().frequency);
+
+      // // Change the HTML to reflect
+      // $("#name-display").html(snapshot.val().name);
+      // $("#email-display").html(snapshot.val().email);
+      // $("#age-display").html(snapshot.val().age);
+      // $("#comment-display").html(snapshot.val().comment);
+
+      // // Handle the errors
+    }, function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    });
