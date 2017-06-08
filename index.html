@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!--momentJS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <!--my css-->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -33,7 +35,27 @@
 		              <h3 class="panel-title">Current Train Schedule</h3>
 		            </div>
 		            <div class="panel-body">
-		            	<p id="addedTrain"></p>
+		            		<table class="table table--trains">
+					          <thead>
+					            <tr>
+					              <th>Train Name</th>
+					              <th>Destination</th>
+					              <th>Arrival</th>
+					              <th>Frequency</th>
+					              <th>Minutes Away</th>
+					            </tr>
+					          </thead>
+					          <tbody>
+					            <tr>
+					              <td></td>
+					              <td></td>
+					              <td></td>
+					              <td></td>
+					              <td></td>
+					            </tr>
+					          </tbody>
+					    </table>
+		            	
 		            </div>
 		        </div>
 		    </div>
@@ -61,13 +83,13 @@
 			                </div>
 
 			                <div class="form-group">
-			                  	<label for="first-train">First Train Time (HH:MM - Military time)
+			                  	<label for="arrival">Train Arrival Time (HH:MM - Military time)
 			                  	</label>
-			                  	<input class="form-control" id="first-train" type="time">
+			                  	<input class="form-control" id="arrival" type="text">
 			                </div>
 
 			                <div class="form-group">
-			                  	<label for="Frequency">Frequency (Min)
+			                  	<label for="Frequency">Frequency (min)
 			                  	</label>
 			                  	<input class="form-control" id="frequency" type="text">
 			                </div>
